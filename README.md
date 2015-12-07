@@ -18,6 +18,8 @@ You can list the 1-wire devices detected on the bus by running `owdir`.
 * `"sensorPath"`: OWFS path to the 1-wire sensor.
 * `"name"`: sensor name.
 * `"unit"`: measurement unit.
+* `"acronym"`: Acronym to show as value label in the frontend.
+* `"label"`: A custom label to use in the frontend.
 
 ### Example:
 
@@ -32,11 +34,22 @@ You can list the 1-wire devices detected on the bus by running `owdir`.
   "class": "OwfsSensor",
   "id": "my-onewire-sensor",
   "name": "One-wire sensors",
+  "host": "10.168.5.1",
+  "port": 4304
   "attributes": [
     {
       "name": "Temperature 1",
       "sensorPath": "/10.2F8B71020800/temperature",
-      "unit": "°C"
+      "unit": "°C",
+      "acronym": "T1",
+      "label": "Temperature OWFS"
+    },
+    {
+      "name": "Temperature 2",
+      "sensorPath": "/28.4196F3010000/fasttemp",
+      "unit": "°C",
+      "acronym": "T2",
+      "label": "Temperature witch fasttemp"
     }
   ]
 }

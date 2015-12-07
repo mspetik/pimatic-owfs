@@ -2,7 +2,7 @@ module.exports = (env) ->
 
   # Require the  bluebird promise library
   Promise = env.require 'bluebird'
-  
+
   # OWFS driver
   OwfsClient = require("owfs").Client
 
@@ -23,12 +23,12 @@ module.exports = (env) ->
     constructor: (@config, framework) ->
       @id = config.id
       @name = config.name
-      # Connects on default port 4304
+      @host = config.host
+      @port = config.port
       # TODO should it be a global object?
-      # TODO make HOST a configuration parameter
-      @owfsConnection = new OwfsClient(HOST)
+      @owfsConnection = new OwfsClient(@host,@port)
       Promise.promisifyAll(@owfsConnection)
-      
+
       @attributes = {}
       # initialise all attributes
       for attr, i in @config.attributes
@@ -36,12 +36,16 @@ module.exports = (env) ->
           name = attr.name
           sensorPath = attr.sensorPath
           unit = attr.unit
+          acronym = attr.acronym
+          label = attr.label
 
           @attributes[name] = {
             description: "One-wire sensor for #{name}"
             type: "number"
             unit: unit
           }
+          @attributes[name].acronym = attr.acronym or null
+          @attributes[name].label = attr.label or null
 
           # Create a getter for this attribute
           getter = (=>

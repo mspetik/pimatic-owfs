@@ -11,5 +11,13 @@ module.exports = {
       interval:
         description: "Update interval in milliseconds"
         default: 10000
+      host:
+        description: "IP on owserver "
+        type:"string"
+        default: "localhost"
+      port:
+        description: "Port on owserver "
+        "type": "number"
+        default: 4304
   }
 }
