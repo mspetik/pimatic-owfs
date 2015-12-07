@@ -35,7 +35,7 @@ You can list the 1-wire devices detected on the bus by running `owdir`.
   "id": "my-onewire-sensor",
   "name": "One-wire sensors",
   "host": "10.168.5.1",
-  "port": 4304,
+  "port": 4304
   "attributes": [
     {
       "name": "Temperature 1",
