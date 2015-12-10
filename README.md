@@ -49,7 +49,7 @@ You can list the 1-wire devices detected on the bus by running `owdir`.
       "sensorPath": "/28.4196F3010000/fasttemp",
       "unit": "°C",
       "acronym": "T2",
-      "label": "Temperature witch fasttemp"
+      "label": "Temperature with fasttemp"
     }
   ]
 }
